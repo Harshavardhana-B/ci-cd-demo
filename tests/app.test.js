@@ -15,4 +15,11 @@ describe("Application Tests", () => {
     expect(response.statusCode).toBe(200);
     expect(response.body.status).toBe("OK");
   });
+
+  test("GET /version should return the application version", async () => {
+    const response = await request(app).get("/version");
+
+    expect(response.statusCode).toBe(200);
+    expect(response.body.version).toBe("1.0.1");
+  });
 });
